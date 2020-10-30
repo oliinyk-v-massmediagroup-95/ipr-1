@@ -14,7 +14,7 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="app">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
@@ -145,22 +145,25 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/css" />
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/app/Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/css" />
       <recent name="$PROJECT_DIR$/app/Domain/Product/Services/User" />
       <recent name="$PROJECT_DIR$/app/Database/Models" />
       <recent name="$PROJECT_DIR$/app/Database/Queries" />
       <recent name="$PROJECT_DIR$/app/Services/Product" />
-      <recent name="$PROJECT_DIR$/app/Entities/UserRole/Interfaces" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.DeletedStatusService.php">
@@ -194,7 +197,7 @@
       <workItem from="1603695222978" duration="27000" />
       <workItem from="1603727000598" duration="4507000" />
       <workItem from="1603782010503" duration="79000" />
-      <workItem from="1604040470934" duration="13780000" />
+      <workItem from="1604040470934" duration="26181000" />
     </task>
     <servers />
   </component>
@@ -202,14 +205,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="572" y="210" width="824" height="684" key="#CLI_Interpreters" timestamp="1604061097313">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="572" y="210" width="824" height="684" key="#CLI_Interpreters/67.27.1853.1053@67.27.1853.1053" timestamp="1604061097313" />
+    <state x="651" y="105" width="675" height="895" key="#PHP" timestamp="1604061099576">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="651" y="105" width="675" height="895" key="#PHP/67.27.1853.1053@67.27.1853.1053" timestamp="1604061099576" />
     <state x="1120" y="196" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604049012027">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1120" y="196" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604049012027" />
-    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604043538847">
+    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604068064868">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1604043538847" />
+    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1604068064868" />
     <state x="808" y="311" width="351" height="482" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604052006187">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -222,10 +233,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="745" y="413" width="487" height="278" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1853.1053@67.27.1853.1053" timestamp="1603461925188" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603782087783">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604061337077">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603782087783" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1604061337077" />
     <state width="1807" height="269" key="GridCell.Tab.0.bottom" timestamp="1604051978033">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -266,17 +277,25 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="789" y="474" width="399" height="157" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604043522856" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1603447011789">
+    <state x="482" y="187" key="SettingsEditor" timestamp="1604061544507">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1603447011789" />
-    <state x="685" y="275" width="716" height="612" key="find.popup" timestamp="1604040784954">
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1604061544507" />
+    <state x="685" y="275" width="716" height="612" key="find.popup" timestamp="1604062685871">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="685" y="275" width="716" height="612" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1604040784954" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1604040750574">
+    <state x="685" y="275" width="716" height="612" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1604062685871" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1604065464648">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1604040750574" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1604065464648" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1604062600353">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1604062600353" />
+    <state x="718" y="380" width="540" height="345" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604063118936">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="718" y="380" width="540" height="345" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604063118936" />
   </component>
 </project>
