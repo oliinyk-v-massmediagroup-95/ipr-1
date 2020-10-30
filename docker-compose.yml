@@ -1,0 +1,37 @@
+version: "3"
+services:
+  app:
+    container_name: ipr-app
+    build: docker/php
+    volumes:
+    - ./:/var/www
+    tty: true
+    depends_on:
+      - db
+
+  web-server:
+    container_name: ipr-webserver
+    image: nginx:alpine
+    volumes:
+      - ./docker/nginx/logs:/etc/logs/nginx
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./:/var/www:rw
+    tty: true
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    depends_on:
+      - app
+
+  db:
+    container_name: ipr-db
+    image: mysql:8
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
