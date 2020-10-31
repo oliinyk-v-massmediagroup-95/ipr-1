@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Database\User\User;
-use Database\Factories\UserFactory;
+use App\Database\Models\User;
+use App\Enums\Role;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder
@@ -47,29 +47,29 @@ class UsersSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {;
         foreach ($this->admins as $user) {
             User::factory([
                 'email' => $user['email'],
                 'password' => $user['password'],
-                'role' => User::ROLE_ADMIN
-            ]);
+                'role' => Role::ADMIN
+            ])->create();
         }
 
         foreach ($this->clients as $user) {
             User::factory([
                 'email' => $user['email'],
                 'password' => $user['password'],
-                'role' => User::ROLE_CLIENT,
-            ]);
+                'role' => Role::CLIENT,
+            ])->createOne();
         }
 
         foreach ($this->supplier as $user) {
             User::factory([
                 'email' => $user['email'],
                 'password' => $user['password'],
-                'role' => User::ROLE_SUPPLIER,
-            ]);
+                'role' => Role::SUPPLIER,
+            ])->createOne();
         }
     }
 }

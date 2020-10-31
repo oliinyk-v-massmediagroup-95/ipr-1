@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Services;
+namespace App\Domain\Product\Services;
 
 use App\Database\Models\Product;
 use App\Database\Queries\ProductQueries;

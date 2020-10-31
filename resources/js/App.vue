@@ -1,11 +1,11 @@
 <template>
-    <main-template>
-        <h1>Test</h1>
-    </main-template>
+<!--    <main-template>-->
+<!--        <h1>Test</h1>-->
+<!--    </main-template>-->
 <!--    TODO: complete login-->
-<!--    <guest-template>-->
-<!--        <login />-->
-<!--    </guest-template>-->
+    <guest-template>
+        <login />
+    </guest-template>
 </template>
 <script>
 import MainTemplate from './pages/Layouts/Main/Template'

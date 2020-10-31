@@ -2,7 +2,7 @@
 
 namespace App\Domain\Product\Interfaces;
 
-use App\Database\Models\Product;
+use AppModels\Product;
 use Illuminate\Support\Collection;
 
 interface ProductShowInterface

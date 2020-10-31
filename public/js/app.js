@@ -106,6 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -128,6 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/validation/vuetify-validation */ "./resources/js/data/validation/vuetify-validation.js");
 //
 //
 //
@@ -157,7 +159,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      email: {
+        value: '',
+        validation: [_data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["required"], _data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["email"], _data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["min"], _data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["max"]]
+      },
+      password: {
+        value: '',
+        validation: [_data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["required"], _data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["min"], function (v) {
+          return Object(_data_validation_vuetify_validation__WEBPACK_IMPORTED_MODULE_0__["max"])(v, 30);
+        }]
+      }
+    };
+  },
+  methods: {
+    login: function login() {
+      console.log(this.$refs.loginForm.validate());
+    }
+  }
+});
 
 /***/ }),
 
@@ -480,9 +511,22 @@ var render = function() {
             _vm._v(" "),
             _c(
               "v-form",
-              { ref: "form", attrs: { "lazy-validation": "" } },
+              { ref: "loginForm", attrs: { "lazy-validation": "" } },
               [
-                _c("v-text-field", { attrs: { label: "Email", required: "" } }),
+                _c("v-text-field", {
+                  attrs: {
+                    label: "Email",
+                    rules: _vm.email.validation,
+                    required: ""
+                  },
+                  model: {
+                    value: _vm.email.value,
+                    callback: function($$v) {
+                      _vm.$set(_vm.email, "value", $$v)
+                    },
+                    expression: "email.value"
+                  }
+                }),
                 _vm._v(" "),
                 _c("v-text-field", {
                   attrs: { type: "password", label: "Password", required: "" }
@@ -507,10 +551,14 @@ var render = function() {
                       [
                         _c(
                           "v-btn",
-                          { staticClass: "mt-3", attrs: { color: "success" } },
+                          {
+                            staticClass: "mt-3",
+                            attrs: { color: "success" },
+                            on: { click: _vm.login }
+                          },
                           [
                             _vm._v(
-                              "\n                            Validate\n                        "
+                              "\n                            Login\n                        "
                             )
                           ]
                         )
@@ -57751,14 +57799,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _plugins_vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/vuetify */ "./resources/js/plugins/vuetify.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./resources/js/App.vue");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('AppElement', _App__WEBPACK_IMPORTED_MODULE_2__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('AppElement', _App_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_1__["default"]
 }).$mount('#app');
+
+/***/ }),
+
+/***/ "./resources/js/data/validation/vuetify-validation.js":
+/*!************************************************************!*\
+  !*** ./resources/js/data/validation/vuetify-validation.js ***!
+  \************************************************************/
+/*! exports provided: required, email, min, max */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "required", function() { return required; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "email", function() { return email; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "min", function() { return min; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "max", function() { return max; });
+// TODO: export validation rules;
+var required = function required(value) {
+  var message = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Field is required';
+  return !!value || message;
+};
+var email = function email(value) {
+  var message = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'Invalid email';
+  return value && new RegExp("\\S+@\\S+\\.\\S+").test(value) || message;
+};
+var min = function min(value) {
+  var minLength = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3;
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'Min field length is ' + minLength;
+  return value.length > minLength || message;
+};
+var max = function max(value) {
+  var maxLength = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 150;
+  var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'Max field length is ' + maxLength;
+  return value.toString().length < maxLength || message;
+};
 
 /***/ }),
 
@@ -58152,8 +58235,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/dev/php/IPR/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/dev/php/IPR/resources/css/app.scss */"./resources/css/app.scss");
+__webpack_require__(/*! D:\Projects\ipr\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Projects\ipr\resources\css\app.scss */"./resources/css/app.scss");
 
 
 /***/ })
