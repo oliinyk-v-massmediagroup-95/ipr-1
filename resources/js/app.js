@@ -2,8 +2,8 @@ import Vue from 'vue';
 
 import vuetify from './plugins/vuetify'
 
-import App from './App'
-Vue.component('AppElement', App);
+import AppElement from './App.vue'
+Vue.component('AppElement', AppElement);
 
 new Vue({
     vuetify,
