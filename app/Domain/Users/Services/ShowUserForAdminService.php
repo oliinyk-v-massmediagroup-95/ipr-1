@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\User\Services;
+namespace App\Domain\Users\Services;
 
 use App\Database\Models\User;
 use App\Database\Queries\UserQueries;
 use App\Enums\Role;
 use Illuminate\Support\Collection;
 
-class ShowUserService
+class ShowUserForAdminService
 {
     private UserQueries $userQueries;
     private array $canSeeRoles = [Role::SUPPLIER, Role::CLIENT];

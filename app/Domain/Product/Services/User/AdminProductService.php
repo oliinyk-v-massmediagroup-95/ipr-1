@@ -10,6 +10,7 @@ use App\Domain\Product\Services\ProductStatusService;
 use App\Enums\ProductStatus;
 use App\Enums\Role;
 use Illuminate\Support\Collection;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminProductService implements ProductShowInterface
 {
@@ -29,6 +30,10 @@ class AdminProductService implements ProductShowInterface
     public function productSingle(int $originalProductId): Product
     {
         $product = $this->productQueries->findById($originalProductId);
+
+        if(!isset($product)) {
+            throw new NotFoundHttpException('Product not found');
+        }
 
         return $this->productQueries->load($product, ['status', 'original', 'versions']);
     }
