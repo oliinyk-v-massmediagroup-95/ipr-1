@@ -1,22 +1,30 @@
 <template>
-    <main-template>
-        <h1>Test</h1>
-    </main-template>
-<!--    TODO: complete login-->
-<!--    <guest-template>-->
-<!--        <login />-->
-<!--    </guest-template>-->
+    <component :is="getTemplate()">
+        <router-view />
+    </component>
 </template>
 <script>
 import MainTemplate from './pages/Layouts/Main/Template'
 import GuestTemplate from './pages/Layouts/Guest/Template'
-import Login from "./pages/Auth/Login";
 
 export default {
     components: {
         MainTemplate,
         GuestTemplate,
-        Login
     },
+    computed: {
+        isUserAuth() {
+            return this.$store.getters.isUserAuth;
+        }
+    },
+    methods: {
+        getTemplate() {
+            if(this.isUserAuth) {
+
+                return 'main-template'
+            }
+            return 'guest-template'
+        }
+    }
 }
 </script>

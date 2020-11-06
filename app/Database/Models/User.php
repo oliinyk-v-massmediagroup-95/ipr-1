@@ -2,8 +2,11 @@
 
 namespace App\Database\Models;
 
+use Database\Factories\UserFactory;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;
 
 /**
  * App\Database\User\User
@@ -31,7 +34,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class User extends Model
+class User extends Model implements AuthenticatableInterface
 {
-    use HasFactory;
+    use HasFactory, AuthenticatableTrait;
+
+    protected static function newFactory()
+    {
+        return UserFactory::new();
+    }
 }

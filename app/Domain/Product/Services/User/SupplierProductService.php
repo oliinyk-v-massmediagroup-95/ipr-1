@@ -9,7 +9,7 @@ use App\Domain\Product\Interfaces\ProductOperationInterface;
 use App\Domain\Product\Interfaces\ProductShowInterface;
 use Illuminate\Support\Collection;
 
-class SupplierProductService implements ProductShowInterface, ProductOperationInterface
+class SupplierProductService implements ProductShowInterface
 {
     private ProductQueries $productQueries;
 
@@ -28,17 +28,17 @@ class SupplierProductService implements ProductShowInterface, ProductOperationIn
         // TODO: Implement single() method.
     }
 
-    public function showCreate(User $user): void
+    public function showCreate(): void
     {
         // TODO: Implement showCreate() method.
     }
 
-    public function createProduct(User $user, array $productData): Product
+    public function createProduct(array $productData): Product
     {
         // TODO: Implement createProduct() method.
     }
 
-    public function deleteProduct(User $user, Product $product): void
+    public function deleteProduct(Product $product): void
     {
         // TODO: Implement deleteProduct() method.
     }
@@ -48,7 +48,7 @@ class SupplierProductService implements ProductShowInterface, ProductOperationIn
         // TODO: Implement showEdit() method.
     }
 
-    public function updateProduct(User $user, Product $product, array $productData): Product
+    public function updateProduct(Product $product, array $productData): Product
     {
         // TODO: Implement updateProduct() method.
     }

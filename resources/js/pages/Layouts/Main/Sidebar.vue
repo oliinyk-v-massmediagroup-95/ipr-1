@@ -10,8 +10,9 @@
     >
         <v-list>
             <v-list-item
-                v-for="({text, icon}, i) in items"
+                v-for="({text, icon, route}, i) in items"
                 :key="i"
+                @click="changeRoute(route)"
                 link
             >
                 <v-list-item-icon>
@@ -26,6 +27,7 @@
     </v-navigation-drawer>
 </template>
 <script>
+import {USER_ROLES} from "../../../data/constants/userRoles";
 
 export default {
     props: {
@@ -35,9 +37,30 @@ export default {
     },
     data: () => ({
         items: [
-            {icon: 'layers', text: 'Products', path: ''},
-            {icon: 'supervised_user_circle', text: 'Users', path: ''},
+            {icon: 'home', text: 'Dashboard', route: {name: 'dashboard'}},
+            {icon: 'layers', text: 'Products', route: {name: 'products'}},
         ],
     }),
+    computed: {
+        user() {
+            return this.$store.getters.getUser
+        }
+    },
+    beforeMount() {
+        if(this.user.role === USER_ROLES.ADMIN) {
+            this.appendUserSection()
+        }
+    },
+    methods: {
+        changeRoute(route) {
+            if(this.$router.currentRoute.name !== route.name) {
+                this.$router.push(route)
+            }
+        },
+
+        appendUserSection() {
+            this.items.push({admin: true, icon: 'supervised_user_circle', text: 'Users', route: {name: 'users'}});
+        }
+    }
 }
 </script>

@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Helpers\AppResponse;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use \Illuminate\Validation\ValidationException as VendorValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -12,7 +14,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        ValidationException::class,
     ];
 
     /**
@@ -32,6 +34,8 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        $this->renderable(
+            fn(ValidationException $e) => AppResponse::validation($e->getValidationErrors())
+        );
     }
 }

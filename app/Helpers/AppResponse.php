@@ -13,10 +13,19 @@ class AppResponse
         return response()->json($data, $status);
     }
 
-    public static function failed(array $data = [], int $status = 400): JsonResponse
+    public static function failed(string $message, int $status = 400): JsonResponse
     {
-        $data['success'] = 0;
+        return response()->json([
+            'success' => 0,
+            'message' => $message,
+        ], $status);
+    }
 
-        return response()->json($data, $status);
+    public static function validation(array $fieldErrors)
+    {
+        return response()->json([
+            'errors' => $fieldErrors,
+            'success' => 0,
+        ], 422);
     }
 }

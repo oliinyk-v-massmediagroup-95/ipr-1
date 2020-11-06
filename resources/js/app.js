@@ -1,12 +1,19 @@
 import Vue from 'vue';
+import store from './store/store';
+import router from './router/router';
 
 import vuetify from './plugins/vuetify'
 
-import App from './App'
-Vue.component('AppElement', App);
+import AppElement from './App.vue'
+Vue.component('AppElement', AppElement);
 
-new Vue({
-    vuetify,
-}).$mount('#app')
+store.dispatch('checkAuth').then(() => {
+    new Vue({
+        vuetify,
+        store,
+        router,
+    }).$mount('#app')
+})
+
 
 
