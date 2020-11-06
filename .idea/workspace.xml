@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="052358cf-da46-481f-8896-59769acbcb12" name="Default Changelist" comment="" />
+    <list default="true" id="052358cf-da46-481f-8896-59769acbcb12" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +15,9 @@
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="app">
     <include_path>
@@ -145,7 +150,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../esu/project" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -197,7 +202,8 @@
       <workItem from="1603695222978" duration="27000" />
       <workItem from="1603727000598" duration="4507000" />
       <workItem from="1603782010503" duration="79000" />
-      <workItem from="1604040470934" duration="26181000" />
+      <workItem from="1604040470934" duration="27888000" />
+      <workItem from="1604300275017" duration="30000" />
     </task>
     <servers />
   </component>
@@ -217,10 +223,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1120" y="196" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604049012027" />
-    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604068064868">
+    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604069981755">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1604068064868" />
+    <state x="677" y="350" width="685" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1604069981755" />
     <state x="808" y="311" width="351" height="482" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604052006187">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -233,26 +239,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="745" y="413" width="487" height="278" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1853.1053@67.27.1853.1053" timestamp="1603461925188" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604061337077">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604300297133">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1604061337077" />
-    <state width="1807" height="269" key="GridCell.Tab.0.bottom" timestamp="1604051978033">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1604300297133" />
+    <state width="1807" height="269" key="GridCell.Tab.0.bottom" timestamp="1604072638177">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="269" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1604051978033" />
-    <state width="1807" height="269" key="GridCell.Tab.0.center" timestamp="1604051978033">
+    <state width="1807" height="269" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1604072638177" />
+    <state width="1807" height="269" key="GridCell.Tab.0.center" timestamp="1604072638177">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="269" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1604051978033" />
-    <state width="1807" height="269" key="GridCell.Tab.0.left" timestamp="1604051978033">
+    <state width="1807" height="269" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1604072638177" />
+    <state width="1807" height="269" key="GridCell.Tab.0.left" timestamp="1604072638176">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="269" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1604051978033" />
-    <state width="1807" height="269" key="GridCell.Tab.0.right" timestamp="1604051978033">
+    <state width="1807" height="269" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1604072638176" />
+    <state width="1807" height="269" key="GridCell.Tab.0.right" timestamp="1604072638177">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="269" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1604051978033" />
+    <state width="1807" height="269" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1604072638177" />
     <state width="1807" height="332" key="GridCell.Tab.1.bottom" timestamp="1603463714949">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
