@@ -3,7 +3,7 @@
         <main-header @sidebarIconClick="changeSidebar"/>
         <main-sidebar :visible="visible"/>
         <v-main>
-            <v-card class="px-16 pt-12" min-height="100%">
+            <v-card class="px-16 py-12" min-height="100%">
                 <slot/>
             </v-card>
         </v-main>

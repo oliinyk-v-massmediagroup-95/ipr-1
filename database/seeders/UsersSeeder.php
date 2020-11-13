@@ -10,7 +10,7 @@ class UsersSeeder extends Seeder
 {
     private array $admins = [
         [
-            'email' => 'admin@example.net',
+            'email' => 'admin1@example.net',
         ],
         [
             'email' => 'admin2@example.net',
@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
 
     private array $clients = [
         [
-            'email' => 'client@example.net',
+            'email' => 'client1@example.net',
         ],
         [
             'email' => 'client2@example.net',
@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
 
     private array $supplier = [
         [
-            'email' => 'supplier@example.net',
+            'email' => 'supplier1@example.net',
         ],
         [
             'email' => 'supplier2@example.net',

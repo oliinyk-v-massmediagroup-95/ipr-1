@@ -1,6 +1,6 @@
 <template>
     <v-navigation-drawer
-        absolute
+        fixed
         dark
         src="https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1915&q=80"
         width="300"

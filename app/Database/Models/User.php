@@ -2,6 +2,7 @@
 
 namespace App\Database\Models;
 
+use Database\Factories\ProductFactory;
 use Database\Factories\UserFactory;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -38,7 +39,7 @@ class User extends Model implements AuthenticatableInterface
 {
     use HasFactory, AuthenticatableTrait;
 
-    protected static function newFactory()
+    protected static function newFactory(): UserFactory
     {
         return UserFactory::new();
     }

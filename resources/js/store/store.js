@@ -3,12 +3,14 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import UserModule from './modules/userModule';
-import ServerValidationModule from './modules/serverValidationModule'
+import AuthModule from './modules/authModule';
+import ServerValidationModule from './modules/serverValidationModule';
+import RegisterSubmodules from './modules/registerSubmodules'
 
 export default new Vuex.Store({
     modules: {
-        UserModule,
+        RegisterSubmodules,
+        AuthModule,
         ServerValidationModule,
-    }
+    },
 })

@@ -1,5 +1,5 @@
 <template>
-    <component :is="getTemplate()">
+    <component :is="getTemplate">
         <router-view />
     </component>
 </template>
@@ -15,16 +15,15 @@ export default {
     computed: {
         isUserAuth() {
             return this.$store.getters.isUserAuth;
-        }
-    },
-    methods: {
+        },
+
         getTemplate() {
             if(this.isUserAuth) {
-
                 return 'main-template'
             }
+
             return 'guest-template'
         }
-    }
+    },
 }
 </script>

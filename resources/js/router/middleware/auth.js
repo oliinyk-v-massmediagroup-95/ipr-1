@@ -5,7 +5,7 @@ export function Auth({ next, router }) {
         return next();
     }
 
-    router.push({ path: '/login' });
+    return router.push({ path: '/login' });
 }
 
 export function Guest({ next, router }) {

@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router'
+
+import {Auth, Guest} from "./middleware/auth";
 import Login from "../pages/Auth/Login";
 import Dashboard from "../pages/Dashboard";
-import {Auth, Guest} from "./middleware/auth";
 import ProductList from "../pages/Products/ProductList";
 import UsersList from "../pages/Users/UsersList";
 
@@ -44,7 +45,6 @@ const router = new VueRouter({
                 middleware: [Auth]
             }
         },
-
         {
             path: '*',
             redirect: {name: 'dashboard'}

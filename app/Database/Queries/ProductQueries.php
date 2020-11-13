@@ -7,9 +7,9 @@ use App\Database\Models\Product;
 
 class ProductQueries
 {
-    public function allOriginal(): Collection
+    public function allOriginalWith(array $with=[]): Collection
     {
-        return Product::query()->onlyOriginal()->get();
+        return Product::query()->onlyOriginal()->with($with)->get();
     }
 
     public function allOriginalByProductsId(array $productsId): Collection

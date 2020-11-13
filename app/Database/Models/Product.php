@@ -2,12 +2,13 @@
 
 namespace App\Database\Models;
 
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use phpDocumentor\Reflection\Types\Static_;
 
 /**
@@ -22,6 +23,8 @@ use phpDocumentor\Reflection\Types\Static_;
  * @property string $sizes
  * @property string|null $img
  * @property string|null $description
+ * @property-read User $user
+ * @property-read ProductStatus $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Product onlyOriginal()
@@ -50,14 +53,19 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function scopeOnlyOriginal(Builder $query)
+    public function scopeOnlyOriginal(Builder $query): Builder
     {
         return $query->whereNull('original_product_id');
     }
 
-    public function scopeNotOriginal(Builder $query)
+    public function scopeNotOriginal(Builder $query): Builder
     {
         return $query->whereNotNull('original_product_id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function status(): HasOne
@@ -78,5 +86,10 @@ class Product extends Model
     public function original(): BelongsTo
     {
         return $this->belongsTo(self::class, 'original_product_id');
+    }
+
+    protected static function newFactory(): ProductFactory
+    {
+        return ProductFactory::new();
     }
 }
