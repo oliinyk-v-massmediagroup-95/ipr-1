@@ -15,14 +15,19 @@ class ProductListResource extends JsonResource
          * @var Product $this
          *
          */
+
+        if(!isset($this->id)){
+            dd($this->id);
+        }
+
         return [
             'id' => $this->id,
             'title' => $this->title,
             'userName' => $this->user ? $this->user->name : 'Not Found',
-            'cost' => $this->cost,
+            'cost' => $this->cost . " €",
+            'weight' => $this->weight . " kg",
             'img' => $this->img,
             'statusName' => $this->status ? $this->status->name: 'Not Found',
-            'weight' => $this->weight,
             'sizes' => $this->sizes,
             'createdAt' => $this->created_at->format('Y.m.d H:i:s'),
         ];

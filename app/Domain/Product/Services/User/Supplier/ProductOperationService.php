@@ -4,16 +4,24 @@ namespace Product\Services\User\Supplier;
 
 use App\Database\Models\Product;
 use App\Database\Queries\ProductQueries;
-use Illuminate\Support\Collection;
+use App\Enums\ProductStatus;
+use App\Helpers\Proxy\AuthProxy;
+use LogicException;
 use Product\Services\Status\ProductStatusService;
 
 class ProductOperationService
 {
     private ProductQueries $productQueries;
     private ProductStatusService $statusService;
+    private AuthProxy $auth;
 
-    public function __construct(ProductQueries $productQueries, ProductStatusService $productStatusService)
+    public function __construct(
+        ProductQueries $productQueries,
+        ProductStatusService $productStatusService,
+        AuthProxy $auth
+    )
     {
+        $this->auth = $auth;
         $this->productQueries = $productQueries;
         $this->statusService = $productStatusService;
     }
@@ -30,7 +38,13 @@ class ProductOperationService
 
     public function deleteProduct(Product $product): void
     {
-        // TODO: Implement deleteProduct() method.
+       $product = $this->productQueries->load($product, ['status']);
+
+       if($product->status->name === ProductStatus::BANNED) {
+           throw new LogicException("You can't delete banned product");
+       }
+
+       $this->statusService->changeStatus($product, ProductStatus::DELETED);
     }
 
     public function showEdit(Product $product): Product

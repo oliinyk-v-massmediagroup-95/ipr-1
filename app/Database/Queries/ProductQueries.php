@@ -7,7 +7,7 @@ use App\Database\Models\Product;
 
 class ProductQueries
 {
-    public function allOriginalWith(array $with=[]): Collection
+    public function allOriginalWith(array $with = []): Collection
     {
         return Product::query()->onlyOriginal()->with($with)->get();
     }
@@ -17,14 +17,14 @@ class ProductQueries
         return Product::query()->onlyOriginal()->whereIn('id', $productsId)->get();
     }
 
-    public function allOriginalByUserId(int $userId): Collection
+    public function allOriginalByUserIdWith(int $userId, array $with = []): Collection
     {
-        return Product::query()->onlyOriginal()->where('user_id', $userId)->get();
+        return Product::query()->onlyOriginal()->where('user_id', $userId)->with($with)->get();
     }
 
-    public function findById(int $productId): ?Product
+    public function findByIdAndUserId(int $productId, int $userId): ?Product
     {
-        return Product::query()->where('id', $productId)->first();
+        return Product::query()->where('id', $productId)->where('user_id', $userId)->first();
     }
 
     public function load(Product $product, array $load): Product
@@ -32,6 +32,25 @@ class ProductQueries
         $product->load($load);
 
         return $product;
+    }
+
+    public function allByUserIdWhereNotStatus(int $userId, string $statusName): Collection
+    {
+        return Product::query()
+            ->where('user_id', $userId)
+            ->onlyOriginal()
+            ->with(['status'])
+            ->whereDoesntHave('status', function ($query) use ($statusName) {
+                return $query->where('name', $statusName);
+            })
+            ->get();
+    }
+
+    public function loadMany(Collection $products, string $load): Collection
+    {
+        $products->load($load);
+
+        return $products;
     }
 
     public function create(array $data): Product

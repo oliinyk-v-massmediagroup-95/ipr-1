@@ -2,7 +2,7 @@ import productApi from "../../../../api/client/productApi";
 
 export default {
     actions: {
-        async getProductsList({getters}) {
+        async clientGetProductsList({getters}) {
             const {data} = await productApi.getProductsList()
 
             return {
@@ -11,7 +11,7 @@ export default {
             }
         },
 
-        async showProduct({getters}, {productId}) {
+        async clientShowProduct({getters}, {productId}) {
             const {data} = await productApi.showProduct(productId);
 
             return {
@@ -20,7 +20,7 @@ export default {
             }
         },
 
-        async confirmProduct({getters}, {productId}) {
+        async clientConfirmProduct({getters}, {productId}) {
             const {data} = await productApi.confirmProduct(productId);
 
             return {

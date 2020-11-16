@@ -3,7 +3,7 @@ import userApi from "../../../../api/admin/userApi";
 export default {
     actions: {
 
-        async getUsersList() {
+        async adminGetUsersList() {
             const {data} = await userApi.getUsersList()
 
             return {

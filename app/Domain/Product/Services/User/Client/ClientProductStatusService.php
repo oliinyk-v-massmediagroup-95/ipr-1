@@ -8,7 +8,7 @@ use App\Database\Models\Product;
 use App\Enums\ProductStatus;
 use Product\Services\Status\ProductStatusService;
 
-class ClientStatusService
+class ClientProductStatusService
 {
     private ProductStatusService $statusService;
 

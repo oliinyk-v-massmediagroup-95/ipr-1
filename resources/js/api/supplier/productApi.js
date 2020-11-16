@@ -4,7 +4,7 @@ export default {
 
     getProductsList: () => axios.get('/api/supplier/products'),
 
-    showProduct: (productId) => axios.get(`/api/supplier/products/${productId}`),
+    showProduct: (productId) => axios.get(`/api/supplier/products/show/${productId}`),
 
     createProduct: (data) => axios.post(`/api/supplier/products/create`, data),
 

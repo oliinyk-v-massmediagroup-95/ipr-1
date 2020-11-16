@@ -14,7 +14,7 @@ export default {
 
         isUserAdmin: (state) => state.user.role === USER_ROLES.ADMIN,
         isUserSupplier: (state) => state.user.role === USER_ROLES.SUPPLIER,
-        isUserClient: (state) => state.user.role = USER_ROLES.CLIENT
+        isUserClient: (state) => state.user.role === USER_ROLES.CLIENT
     },
 
     mutations: {
@@ -37,15 +37,12 @@ export default {
             return await dispatch('checkAuth');
         },
 
-        async checkAuth({commit, dispatch}) {
+        async checkAuth({commit}) {
             const {data} = await authApi.checkAuth();
 
             if (data.success) {
                 commit('setUser', data.user);
                 commit('setAuthTrue');
-
-                await dispatch('deleteUserModule');
-                await dispatch('appendUserModule', {user: data.user})
             }else {
                 commit('setUser', null);
                 commit('setAuthFalse');

@@ -3,16 +3,16 @@ import productApi from "../../../../api/supplier/productApi";
 export default {
 
     actions: {
-        async getProductsList({getters}) {
+        async supplierGetProductsList({getters}) {
             const {data} = await productApi.getProductsList()
-
+            // console.log(data);
             return {
                 success: data.success,
                 products: data.products,
             }
         },
 
-        async showProduct({getters}, {productId}) {
+        async supplierShowProduct({getters}, {productId}) {
             const {data} = await productApi.showProduct(productId);
 
             return {
@@ -21,7 +21,7 @@ export default {
             }
         },
 
-        async createProduct({getters}, {productData}) {
+        async supplierCreateProduct({getters}, {productData}) {
             const {data} = await productApi.createProduct(productData);
 
             return {
@@ -29,7 +29,7 @@ export default {
             }
         },
 
-        async editProduct({getters}, {productId}) {
+        async supplierEditProduct({getters}, {productId}) {
             const {data} = await productApi.editProduct(productId)
 
             return {
@@ -38,7 +38,7 @@ export default {
             }
         },
 
-        async updateProduct({getters}, {productId, productData}) {
+        async supplierUpdateProduct({getters}, {productId, productData}) {
             const {data} = await productApi.updateProduct(productId, productData);
 
             return {
@@ -46,7 +46,7 @@ export default {
             }
         },
 
-        async deleteProduct({getters}, {productId}) {
+        async supplierDeleteProduct({getters}, {productId}) {
             const {data} = await productApi.deleteProduct(productId);
 
             return {

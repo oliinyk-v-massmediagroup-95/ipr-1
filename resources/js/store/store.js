@@ -5,12 +5,17 @@ Vue.use(Vuex);
 
 import AuthModule from './modules/authModule';
 import ServerValidationModule from './modules/serverValidationModule';
-import RegisterSubmodules from './modules/registerSubmodules'
+import AdminModule from './modules/admin/adminModule';
+import ClientModule from './modules/client/clientModule';
+import SupplierModule from './modules/supplier/supplierModule';
+
 
 export default new Vuex.Store({
     modules: {
-        RegisterSubmodules,
         AuthModule,
         ServerValidationModule,
+        AdminModule,
+        ClientModule,
+        SupplierModule,
     },
 })

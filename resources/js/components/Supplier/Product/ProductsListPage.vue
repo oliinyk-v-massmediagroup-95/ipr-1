@@ -17,9 +17,6 @@
                             Image
                         </th>
                         <th class="text-center">
-                            User Name
-                        </th>
-                        <th class="text-center">
                             Status
                         </th>
                         <th class="text-center">
@@ -49,7 +46,6 @@
                         <td class="text-center">
                             <img :src="product.img" width="100" :alt="product.title">
                         </td>
-                        <td class="text-center">{{ product.userName }}</td>
                         <td class="text-center">{{ product.statusName }}</td>
                         <td class="text-center">{{ product.cost }}</td>
                         <td class="text-center">{{ product.weight }}</td>
@@ -57,12 +53,30 @@
                         <td class="text-center">{{ product.createdAt }}</td>
                         <td class="text-center">
                             <v-btn
-                                class="ma-2"
-                                text
-                                icon
+                                small
+                                class="primary"
                                 color="blue"
+                                @click="showProduct(product.id)"
                             >
-                                <v-icon>remove_red_eye</v-icon>
+                                show
+                            </v-btn>
+                            <v-btn
+                                small
+                                :disabled="isEditProductDisabled(product)"
+                                class="primary"
+                                color="success"
+                                @click="editProduct(product.id)"
+                            >
+                                edit
+                            </v-btn>
+                            <v-btn
+                                small
+                                :disabled="isDeleteProductDisabled(product)"
+                                class="primary"
+                                color="error"
+                                @click="deleteProduct(product.id)"
+                            >
+                                delete
                             </v-btn>
                         </td>
                     </tr>
@@ -73,12 +87,50 @@
     </div>
 </template>
 <script>
+import {PRODUCT_STATUS} from "../../../data/constants/productStatuses";
 
 export default {
-    props: {
-        products: {
-            type: Array,
-        }
+    async created() {
+        await this.getProducts();
+    },
+    data: () => ({
+        PRODUCT_STATUS,
+        products: [],
+    }),
+    methods: {
+        async getProducts() {
+            const {success, products} = await this.$store.dispatch('supplierGetProductsList');
+
+            if (success) {
+                this.products = products;
+            }
+        },
+
+        isEditProductDisabled(product) {
+            return product.statusName === PRODUCT_STATUS.BANNED
+        },
+
+        isDeleteProductDisabled(product) {
+            return product.statusName === PRODUCT_STATUS.BANNED
+        },
+
+        showProduct(productId) {
+            this.$router.push({name: 'products-show', params: {productId: productId}})
+        },
+
+        editProduct(productId) {
+            // this.$router.push()
+        },
+
+        async deleteProduct(productId) {
+            const {success} = await this.$store.dispatch('supplierDeleteProduct', {
+                productId: productId,
+            });
+
+            if (success) {
+                await this.getProducts()
+            }
+        },
     }
 }
 </script>

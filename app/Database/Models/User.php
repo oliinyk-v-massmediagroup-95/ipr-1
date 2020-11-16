@@ -8,6 +8,9 @@ use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Enums\ProductStatus;
+use Illuminate\Support\Collection;
 
 /**
  * App\Database\User\User
@@ -19,6 +22,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;
  * @property string|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
+ * @property-read Collection $supplierProducts
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()

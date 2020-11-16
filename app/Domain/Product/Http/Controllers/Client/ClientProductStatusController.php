@@ -8,14 +8,14 @@ use App\Enums\ProductStatus;
 use App\Helpers\AppResponse;
 use Illuminate\Http\JsonResponse;
 use Product\Http\Resources\Client\ProductShowResource;
-use Product\Services\User\Client\ClientStatusService;
+use Product\Services\User\Client\ClientProductStatusService;
 use Product\Services\User\ProductShowService;
 
 class ClientProductStatusController
 {
-    private ClientStatusService $clientStatusService;
+    private ClientProductStatusService $clientStatusService;
 
-    public function __construct(ClientStatusService $clientProductService)
+    public function __construct(ClientProductStatusService $clientProductService)
     {
         $this->clientStatusService = $clientProductService;
     }

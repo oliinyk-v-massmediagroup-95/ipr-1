@@ -6,6 +6,7 @@ import Login from "../pages/Auth/Login";
 import Dashboard from "../pages/Dashboard";
 import ProductList from "../pages/Products/ProductList";
 import UsersList from "../pages/Users/UsersList";
+import ProductShow from "../pages/Products/ProductShow";
 
 Vue.use(VueRouter);
 
@@ -36,7 +37,17 @@ const router = new VueRouter({
                 middleware: [Auth]
             }
         },
-
+        {
+            path: '/products/show/:productId',
+            name: 'products-show',
+            props: (router) => {
+                return { productId: parseInt(router.params.productId) }
+            },
+            component: ProductShow,
+            meta: {
+                middleware: [Auth],
+            }
+        },
         {
             path: '/users',
             name: 'users',

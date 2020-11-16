@@ -7,13 +7,13 @@ use App\Database\Models\Product;
 use App\Enums\ProductStatus;
 use App\Helpers\AppResponse;
 use Illuminate\Http\JsonResponse;
-use Product\Services\User\Admin\AdminStatusService;
+use Product\Services\User\Admin\AdminProductStatusService;
 
 class AdminProductStatusController
 {
-    private AdminStatusService $adminStatusService;
+    private AdminProductStatusService $adminStatusService;
 
-    public function __construct(AdminStatusService $statusService)
+    public function __construct(AdminProductStatusService $statusService)
     {
         $this->adminStatusService = $statusService;
     }

@@ -50,19 +50,30 @@
                             <img :src="product.img" width="100" :alt="product.title">
                         </td>
                         <td class="text-center">{{ product.userName }}</td>
-                        <td class="text-center">{{ product.statusName }}</td>
+                        <td class="text-center">
+                            <b>{{ product.statusName }}</b>
+                        </td>
                         <td class="text-center">{{ product.cost }}</td>
                         <td class="text-center">{{ product.weight }}</td>
                         <td class="text-center">{{ product.sizes }}</td>
                         <td class="text-center">{{ product.createdAt }}</td>
                         <td class="text-center">
                             <v-btn
-                                class="ma-2"
-                                text
-                                icon
+                                small
+                                class="primary"
                                 color="blue"
+                                @click="showProduct(product.id)"
                             >
-                                <v-icon>remove_red_eye</v-icon>
+                                show
+                            </v-btn>
+                            <v-btn
+                                small
+                                :disabled="product.statusName === PRODUCT_STATUS.BANNED"
+                                depressed
+                                color="error"
+                                @click="banProduct(product.id)"
+                            >
+                                ban
                             </v-btn>
                         </td>
                     </tr>
@@ -73,11 +84,37 @@
     </div>
 </template>
 <script>
+import {PRODUCT_STATUS} from "../../../data/constants/productStatuses";
 
 export default {
-    props: {
-        products: {
-            type: Array,
+    data: () => ({
+        PRODUCT_STATUS,
+        products: [],
+    }),
+    async created() {
+        await this.getProducts();
+    },
+    methods: {
+        async getProducts() {
+            const {success, products} = await this.$store.dispatch('adminGetProductsList');
+
+            if (success) {
+                this.products = products;
+            }
+        },
+
+        showProduct(productId) {
+            this.$router.push({name: 'products-show', params: {productId: productId}})
+        },
+
+        async banProduct(productId) {
+            const{success} = await this.$store.dispatch('adminBanProduct', {
+                productId: productId,
+            })
+
+            if(success) {
+                await this.getProducts()
+            }
         }
     }
 }

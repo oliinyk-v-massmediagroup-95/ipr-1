@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
 use phpDocumentor\Reflection\Types\Static_;
 
 /**
@@ -25,6 +26,8 @@ use phpDocumentor\Reflection\Types\Static_;
  * @property string|null $description
  * @property-read User $user
  * @property-read ProductStatus $status
+ * @property-read Collection $versions
+ * @property-read Collection $statuses
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Product onlyOriginal()
@@ -51,7 +54,26 @@ class Product extends Model
 
     protected $table = 'products';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'original_product_id',
+        'title',
+        'cost',
+        'weight',
+        'sizes',
+        'img',
+        'description'
+    ];
+
+    public function isOriginal(): bool
+    {
+        return !isset($this->original_product_id);
+    }
+
+    public function isNotOriginal(): bool
+    {
+        return isset($this->original_product_id);
+    }
 
     public function scopeOnlyOriginal(Builder $query): Builder
     {

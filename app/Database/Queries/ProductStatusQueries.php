@@ -4,6 +4,7 @@
 namespace App\Database\Queries;
 
 
+use App\Database\Models\Product;
 use App\Database\Models\ProductStatus;
 
 class ProductStatusQueries

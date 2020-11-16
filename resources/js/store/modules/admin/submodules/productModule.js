@@ -3,7 +3,7 @@ import productApi from "../../../../api/admin/productApi";
 export default {
 
     actions: {
-        async getProductsList({getters}) {
+        async adminGetProductsList({getters}) {
             const {data} = await productApi.getProductsList()
 
             return {
@@ -12,7 +12,7 @@ export default {
             }
         },
 
-        async showProduct({getters}, {productId}) {
+        async adminShowProduct({getters}, {productId}) {
             const {data} = await productApi.showProduct(productId);
 
             return {
@@ -21,7 +21,7 @@ export default {
             }
         },
 
-        async banProduct({getters}, {productId}) {
+        async adminBanProduct({getters}, {productId}) {
             const {data} = await productApi.banProduct(productId);
 
             return {

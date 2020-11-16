@@ -1,39 +1,26 @@
 <template>
-    <component :is="getContentByRole" :products="products" />
+    <admin-products-list-page v-if="isUserAdmin" />
+    <client-products-list-page v-else-if="isUserClient" />
+    <supplier-products-list-page v-else-if="isUserSupplier" />
 </template>
 <script>
-import AdminProducts from '../../components/Admin/ProductList/AdminProducts';
-import SupplierProducts from '../../components/Supplier/ProductList/SupplierProducts';
-import ClientProducts from '../../components/Client/ProductList/ClientProducts';
+import AdminProductsListPage from '../../components/Admin/Product/ProductsListPage';
+import SupplierProductsListPage from '../../components/Supplier/Product/ProductsListPage';
+import ClientProductsListPage from '../../components/Client/Product/ProductsListPage';
+import { mapGetters } from 'vuex'
 
 export default {
     components: {
-        AdminProducts,
-        SupplierProducts,
-        ClientProducts,
+        AdminProductsListPage,
+        SupplierProductsListPage,
+        ClientProductsListPage,
     },
-    data: () => ({
-        products: [],
-    }),
     computed: {
-        userRole() {
-            return this.$store.getters.getUserRole;
-        },
-        getContentByRole() {
-            return this.userRole + '-products';
-        }
+        ...mapGetters([
+            'isUserAdmin',
+            'isUserSupplier',
+            'isUserClient',
+        ])
     },
-    async created() {
-        await this.getProducts();
-    },
-    methods: {
-        async getProducts() {
-            const {success, products} = await this.$store.dispatch('getProductsList');
-
-            if(success) {
-                this.products = products;
-            }
-        }
-    }
 }
 </script>

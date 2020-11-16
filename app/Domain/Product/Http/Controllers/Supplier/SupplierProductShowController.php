@@ -25,7 +25,7 @@ class SupplierProductShowController
         $products = $this->showService->productList();
 
         return AppResponse::success([
-            'products' => ProductListResource::make($products),
+            'products' => ProductListResource::collection($products),
         ]);
     }
 
