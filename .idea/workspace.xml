@@ -24,39 +24,15 @@
   <component name="ChangeListManager">
     <list default="true" id="052358cf-da46-481f-8896-59769acbcb12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Database/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Database/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Database/Queries/ProductQueries.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/Queries/ProductQueries.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Database/Queries/ProductStatusQueries.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Database/Queries/ProductStatusQueries.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Admin/AdminProductStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Admin/AdminProductStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Client/ClientProductStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Client/ClientProductStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Supplier/SupplierProductShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Http/Controllers/Supplier/SupplierProductShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Http/Resources/Admin/ProductShowResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Http/Resources/Admin/ProductShowResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Http/Resources/ProductListResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Http/Resources/ProductListResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Services/Status/ProductStatusService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Services/Status/ProductStatusService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Services/User/Admin/AdminStatusService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Services/User/Admin/AdminProductStatusService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Services/User/Client/ClientStatusService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Services/User/Client/ClientProductStatusService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Services/User/Supplier/ProductOperationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Services/User/Supplier/ProductOperationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Product/Services/User/Supplier/ProductShowService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Product/Services/User/Supplier/ProductShowService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/admin/productApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/admin/productApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/api/supplier/productApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/api/supplier/productApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Admin/ProductList/AdminProducts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Client/Product/ProductsListPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Client/ProductList/ClientProducts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductsListPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Supplier/ProductList/SupplierProducts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Admin/Product/ProductsListPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Products/ProductList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Products/ProductList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Users/UsersList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Users/UsersList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Admin/Product/ProductShowPage/ProductContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Admin/Product/ProductShowPage/ProductContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductEditPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductEditPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductShowPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductShowPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductsListPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Supplier/Product/ProductsListPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/data/validation/vuetify-validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/data/validation/vuetify-validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/Products/ProductCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Products/ProductCreate.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/admin/submodules/productModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/admin/submodules/productModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/admin/submodules/userModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/admin/submodules/userModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/authModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/authModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/client/submodules/productModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/client/submodules/productModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/registerSubmodules.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/supplier/submodules/productModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/supplier/submodules/productModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/supplier/supplierModule.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/supplier/supplierModule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +188,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components/Client/Product" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../esu/project/app/resources/js/admin/helpers/all.js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -277,7 +253,9 @@
       <workItem from="1605250995348" duration="15142000" />
       <workItem from="1605271426092" duration="15631000" />
       <workItem from="1605509776689" duration="38000" />
-      <workItem from="1605510988397" duration="25275000" />
+      <workItem from="1605510988397" duration="25999000" />
+      <workItem from="1605599090659" duration="35000" />
+      <workItem from="1605615183132" duration="9864000" />
     </task>
     <servers />
   </component>
@@ -309,10 +287,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="1120" y="196" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604650827752" />
-    <state x="677" y="350" width="686" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605276469438">
+    <state x="677" y="350" width="686" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605624017316">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="677" y="350" width="686" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1605276469438" />
+    <state x="677" y="350" width="686" height="404" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1605624017316" />
     <state x="808" y="311" width="351" height="482" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605511076150">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -329,10 +307,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1604649318161" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605509813427">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605624259253">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1605509813427" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1605624259253" />
     <state width="1807" height="269" key="GridCell.Tab.0.bottom" timestamp="1604072638177">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

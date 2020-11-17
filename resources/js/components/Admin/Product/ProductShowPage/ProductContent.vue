@@ -29,13 +29,14 @@
 
             <v-col class="pt-10 px-8 text-center" cols="6">
                 <img v-if="product.img" :src="product.img" :alt="product.title">
-                <img v-else src="https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found.jpg"
-                     alt="not found">
+                <img v-else :src="notFoundImage" alt="not found">
             </v-col>
         </v-row>
     </div>
 </template>
 <script>
+import {notFoundImage} from "../../../../data/constants/shared";
+
 export default {
     props: {
         product: {
@@ -43,6 +44,9 @@ export default {
             required: true,
         }
     },
+    data: () => ({
+        notFoundImage
+    }),
     methods: {
         transformProductData() {
             return [

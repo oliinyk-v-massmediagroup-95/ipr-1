@@ -2,7 +2,22 @@
 
 export const required = (value,
     message = 'Field is required'
-) => !!value || message;
+) => (!!value || value === 0 ) || message;
+
+export const number = (value, message ='Field should be number') => !isNaN(value) || message
+
+export const minNumber = (
+    value,
+    minNumber = 0,
+    message = 'Field value should be a number > '
+) => parseFloat(value) > minNumber || message + minNumber;
+
+export const size = (value, message = 'Value should be (number)x(number)') => {
+    const valueArray = value.toString().split('x');
+    return valueArray.length === 2
+            && !valueArray.some((elem) => required(elem) !== true || number(elem) !== true)
+        || message
+}
 
 export const email = (
     value,

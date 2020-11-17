@@ -37,8 +37,6 @@ export default {
                 productId: this.productId,
             })
 
-            console.log(success);
-
             if (success) {
                 this.loaded = true;
                 this.product = product;

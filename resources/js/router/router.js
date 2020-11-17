@@ -7,6 +7,7 @@ import Dashboard from "../pages/Dashboard";
 import ProductList from "../pages/Products/ProductList";
 import UsersList from "../pages/Users/UsersList";
 import ProductShow from "../pages/Products/ProductShow";
+import ProductCreate from '../pages/Products/ProductCreate';
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,14 @@ const router = new VueRouter({
             component: ProductList,
             meta: {
                 middleware: [Auth]
+            }
+        },
+        {
+            path: '/products/create',
+            name: 'products-create',
+            component: ProductCreate,
+            meta: {
+                middleware: [Auth],
             }
         },
         {

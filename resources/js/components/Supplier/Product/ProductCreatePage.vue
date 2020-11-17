@@ -17,8 +17,7 @@
         <v-card class="mt-16">
             <v-container>
                 <product-form
-                    :product="{}"
-                    @submit="updateProduct"
+                    @submit="createProduct"
                 />
             </v-container>
         </v-card>
@@ -29,12 +28,18 @@ import ProductForm from './ProductCreatePage/ProductForm'
 
 export default {
     components: {
-        ProductForm
+        ProductForm,
     },
     methods: {
-        updateProduct() {
+        async createProduct(productData) {
+            const {success} = this.$store.dispatch('supplierCreateProduct', {
+                productData: productData
+            })
 
-        }
-    }
+            if (success) {
+                await this.$router.push({name: 'products'})
+            }
+        },
+    },
 }
 </script>

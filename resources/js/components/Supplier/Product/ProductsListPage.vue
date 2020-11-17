@@ -1,6 +1,18 @@
 <template>
     <div>
-        <h3 class="display-2">Products</h3>
+        <v-row>
+            <h3 class="col-10 display-2">Products</h3>
+
+            <v-btn
+                depressed
+                x-large
+                class="col-2 primary p-0"
+                @click="createProductPage"
+            >
+                Create Product
+            </v-btn>
+        </v-row>
+
 
         <v-card class="mt-16" width="100%">
             <v-simple-table>
@@ -56,7 +68,7 @@
                                 small
                                 class="primary"
                                 color="blue"
-                                @click="showProduct(product.id)"
+                                @click="showProductPage(product.id)"
                             >
                                 show
                             </v-btn>
@@ -65,7 +77,7 @@
                                 :disabled="isEditProductDisabled(product)"
                                 class="primary"
                                 color="success"
-                                @click="editProduct(product.id)"
+                                @click="editProductPage(product.id)"
                             >
                                 edit
                             </v-btn>
@@ -106,6 +118,10 @@ export default {
             }
         },
 
+        createProductPage() {
+            this.$router.push({name: 'products-create'});
+        },
+
         isEditProductDisabled(product) {
             return product.statusName === PRODUCT_STATUS.BANNED
         },
@@ -114,11 +130,11 @@ export default {
             return product.statusName === PRODUCT_STATUS.BANNED
         },
 
-        showProduct(productId) {
+        showProductPage(productId) {
             this.$router.push({name: 'products-show', params: {productId: productId}})
         },
 
-        editProduct(productId) {
+        editProductPage(productId) {
             // this.$router.push()
         },
 
