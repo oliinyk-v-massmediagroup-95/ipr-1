@@ -20,13 +20,14 @@
         <v-card class="mt-16">
             <product-content
                 :product="product"
+                :user="productUser"
             />
         </v-card>
 
         <v-card class="mt-16" width="100%">
             <product-relations
-                :versions="product.versions && product.versions.length ? product.versions : null"
-                :original="product.original"
+                :versions="versions && versions.length ? versions : null"
+                :original="original"
             />
         </v-card>
     </div>
@@ -35,6 +36,8 @@
 import ProductContent from "./ProductShowPage/ProductContent";
 import ProductRelations from "./ProductShowPage/ProductRelations";
 import {PRODUCT_STATUS} from "../../../data/constants/productStatuses";
+import Product from "../../../model/product";
+import User from "../../../model/user";
 
 export default {
     components: {ProductRelations, ProductContent},
@@ -46,6 +49,10 @@ export default {
     data: () => ({
         PRODUCT_STATUS,
         product: {},
+        versions: [],
+        original: null,
+        productUser: null,
+
         loaded: false,
     }),
     async created() {
@@ -53,13 +60,20 @@ export default {
     },
     methods: {
         async getProduct() {
-            const {product, success} = await this.$store.dispatch('adminShowProduct', {
+            const {product, versions, original, productUser, success} = await this.$store.dispatch('adminShowProduct', {
                 productId: this.productId,
             })
 
             if (success) {
+                this.product = new Product(product);
+                this.versions = Product.transformCollection(versions);
+                this.productUser = new User(productUser);
+
+                if(original) {
+                    this.original = new Product(original);
+                }
+
                 this.loaded = true;
-                this.product = product;
             }
         },
 

@@ -7,8 +7,9 @@ namespace Product\Http\Controllers\Admin;
 use App\Database\Models\Product;
 use App\Helpers\AppResponse;
 use Illuminate\Http\JsonResponse;
-use Product\Http\Resources\Admin\ProductShowResource;
+use Product\Http\Resources\ProductResource;
 use Product\Http\Resources\ProductListResource;
+use Product\Http\Resources\UserResource;
 use Product\Services\User\Admin\ProductShowService;
 
 class AdminProductShowController
@@ -25,7 +26,7 @@ class AdminProductShowController
         $products = $this->showService->productList();
 
         return AppResponse::success([
-            'products' => ProductListResource::collection($products),
+            'products' => ProductResource::collection($products),
         ]);
     }
 
@@ -34,7 +35,10 @@ class AdminProductShowController
         $product = $this->showService->productSingle($product);
 
         return AppResponse::success([
-            'product' => ProductShowResource::make($product),
+            'product' => ProductResource::make($product),
+            'versions' => ProductResource::collection($product->versions),
+            'original' => $product->original ? ProductResource::make($product->original) : null,
+            'productUser' => UserResource::make($product->user)
         ]);
     }
 }

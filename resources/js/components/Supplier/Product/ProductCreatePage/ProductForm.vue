@@ -40,6 +40,15 @@
                     filled
                     rows="3"
                 />
+
+                <v-btn
+                    depressed
+                    x-large
+                    class="primary"
+                    @click="submitForm"
+                >
+                    {{ buttonText }}
+                </v-btn>
             </v-col>
 
             <v-col cols="6" class="px-10">
@@ -53,7 +62,7 @@
 
                 <div class="pt-6">
                     <img v-if="imageSrc" :src="imageSrc" alt="product img" width="100%"/>
-                    <img v-else :src="notFoundImage" alt="product img" width="100%"/>
+                    <img v-else :src="notFoundImage" alt="not found" width="100%" />
                 </div>
 
             </v-col>
@@ -61,64 +70,57 @@
     </v-form>
 </template>
 <script>
-import {required, number, min, max, minNumber, size} from "../../../../data/validation/vuetify-validation";
+import Product from "../../../../model/product";
 import {notFoundImage} from "../../../../data/constants/shared";
-import {objectToFormData} from "../../../../data/helpers/helpers";
 
 export default {
     props: {
         product: {
             type: Object,
-            default: () => {
-            },
-        }
+            required: false,
+        },
+        buttonText: {
+            type: String,
+            required: true,
+        },
     },
+
     data: () => ({
         fileReader: null,
         imageSrc: '',
         notFoundImage,
 
         productData: {
-            title: '',
-            cost: 0,
-            weight: 0,
-            sizes: '0x0',
-            img: null,
-            description: ''
+            ...Product.createNew()
         },
 
         validation: {
-            title: [required, min, max],
-            cost: [required, number, minNumber],
-            weight: [required, number, minNumber],
-            sizes: [required, size],
-            img: [],
-            description: []
+            ...Product.validationRules()
         }
     }),
+
     beforeMount() {
         this.prepareFileReader();
-        this.fillProductData(this.product);
+
+        if(this.product) {
+            this.fillProductData(this.product);
+        }
     },
+
     methods: {
         async submitForm() {
-            const valid = this.$refs.createProduct.validate();
+            const valid = this.$refs.productForm.validate();
 
             if (valid) {
-                const productData = objectToFormData(this.productData);
-
-                this.$emit('submit', {
-                    formData: productData
-                });
+                this.$emit('submit', Product.toFormData(this.productData));
             }
         },
 
-        fillProductData(data) {
-            for(let key in data) {
-                if(this.productData[key] !== undefined) {
-                    this.productData[key] = data[key];
-                }
-            }
+        fillProductData(product) {
+            this.productData = new Product(product);
+
+            this.changeImage(this.productData.img);
+            this.productData.img = null;
         },
 
         prepareFileReader() {
@@ -131,9 +133,14 @@ export default {
         },
 
         onFileSelect(file) {
-            this.fileReader.readAsDataURL(file);
+            if(file) {
+                this.fileReader.readAsDataURL(file);
+            }else{
+                this.changeImage(notFoundImage);
+            }
         }
     },
+
     destroyed() {
         this.fileReader = null;
     }

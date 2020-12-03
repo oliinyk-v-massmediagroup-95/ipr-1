@@ -28,11 +28,11 @@ export const min = (
     value,
     minLength = 3,
     message = 'Min field length is ' + minLength
-) =>  value.length > minLength || message
+) =>  (value && value.length) > minLength || message
 
 
 export const max = (
     value,
     maxLength = 150,
     message='Max field length is ' + maxLength
-) => value.toString().length < maxLength || message
+) => value && value.length < maxLength || message

@@ -85,6 +85,7 @@
 </template>
 <script>
 import {PRODUCT_STATUS} from "../../../data/constants/productStatuses";
+import Product from "../../../model/product";
 
 export default {
     data: () => ({
@@ -99,7 +100,7 @@ export default {
             const {success, products} = await this.$store.dispatch('adminGetProductsList');
 
             if (success) {
-                this.products = products;
+                this.products = Product.transformCollection(products);
             }
         },
 

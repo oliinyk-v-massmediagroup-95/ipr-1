@@ -100,6 +100,8 @@
 </template>
 <script>
 import {PRODUCT_STATUS} from "../../../data/constants/productStatuses";
+import {notFoundImage} from "../../../data/constants/shared";
+import Product from "../../../model/product";
 
 export default {
     async created() {
@@ -107,6 +109,7 @@ export default {
     },
     data: () => ({
         PRODUCT_STATUS,
+        notFoundImage,
         products: [],
     }),
     methods: {
@@ -114,7 +117,7 @@ export default {
             const {success, products} = await this.$store.dispatch('supplierGetProductsList');
 
             if (success) {
-                this.products = products;
+                this.products = Product.transformCollection(products);
             }
         },
 
@@ -135,7 +138,7 @@ export default {
         },
 
         editProductPage(productId) {
-            // this.$router.push()
+            this.$router.push({name: 'products-edit', params: {productId: productId}})
         },
 
         async deleteProduct(productId) {

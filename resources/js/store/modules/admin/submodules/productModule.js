@@ -18,6 +18,9 @@ export default {
             return {
                 success: data.success,
                 product: data.product,
+                versions: data.versions,
+                original: data.original,
+                productUser: data.productUser
             }
         },
 

@@ -8,6 +8,7 @@ import ProductList from "../pages/Products/ProductList";
 import UsersList from "../pages/Users/UsersList";
 import ProductShow from "../pages/Products/ProductShow";
 import ProductCreate from '../pages/Products/ProductCreate';
+import ProductEdit from "../pages/Products/ProductEdit";
 
 Vue.use(VueRouter);
 
@@ -53,6 +54,17 @@ const router = new VueRouter({
                 return { productId: parseInt(router.params.productId) }
             },
             component: ProductShow,
+            meta: {
+                middleware: [Auth],
+            }
+        },
+        {
+            path: '/products/edit/:productId',
+            name: 'products-edit',
+            props: (router) => {
+                return { productId: parseInt(router.params.productId) }
+            },
+            component: ProductEdit,
             meta: {
                 middleware: [Auth],
             }

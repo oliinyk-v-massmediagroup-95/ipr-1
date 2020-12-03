@@ -6,43 +6,52 @@ namespace Product\Http\Controllers\Supplier;
 
 use App\Database\Models\Product;
 use App\Helpers\AppResponse;
+use App\Helpers\Proxy\AuthProxy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Product\Http\Requests\Supplier\ProductCreateRequest;
+use Product\Http\Resources\ProductResource;
+use Product\Http\Resources\Supplier\ProductShowResource;
 use Product\Services\User\Supplier\ProductOperationService;
 
 class SupplierProductOperationController
 {
     private ProductOperationService $productOperationService;
+    private AuthProxy $auth;
 
-    public function __construct(ProductOperationService $productOperationService)
+    public function __construct(ProductOperationService $productOperationService, AuthProxy $authProxy)
     {
         $this->productOperationService = $productOperationService;
+        $this->auth = $authProxy;
     }
 
-    public function create(): JsonResponse
+    public function create(ProductCreateRequest $request): JsonResponse
     {
-        $this->productOperationService->showCreate();
-
-        return AppResponse::success();
-    }
-
-    public function store(Request $request): JsonResponse
-    {
-        $this->productOperationService->createProduct($request->all());
+        $this->productOperationService->createProduct(
+            $request->validated(),
+            $this->auth->user(),
+            $request->file('img'),
+        );
 
         return AppResponse::success();
     }
 
     public function edit(Product $product): JsonResponse
     {
-        $this->productOperationService->showEdit($product);
+        $product = $this->productOperationService->getProduct($product);
 
-        return AppResponse::success();
+        return AppResponse::success([
+            'product' => ProductResource::make($product)
+        ]);
     }
 
-    public function update(Request $request, Product $product): JsonResponse
+    public function update(ProductCreateRequest $request, Product $product): JsonResponse
     {
-        $this->productOperationService->updateProduct($product, $request->all());
+        $this->productOperationService->updateProduct(
+            $product,
+            $request->validated(),
+            $request->file('img')
+        );
 
         return AppResponse::success();
     }

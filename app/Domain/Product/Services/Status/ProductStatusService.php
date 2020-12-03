@@ -34,12 +34,13 @@ class ProductStatusService
             throw new LogicException('Undefined status');
         }
 
-        if($product->isNotOriginal()) {
+        if ($product->isNotOriginal()) {
             throw new LogicException("Can't change status in not original record");
         }
 
-
-        $this->createProductVersion($product);
+        if ($status !== ProductStatus::CREATED) {
+            $this->createProductVersion($product);
+        }
 
         return $this->createNewStatus($product, $status);
     }

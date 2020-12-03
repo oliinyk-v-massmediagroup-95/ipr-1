@@ -11,7 +11,8 @@
                         v-for="(option, index) in transformProductData()"
                         :key="index"
                         class="mt-6 text-center"
-                        no-gutters>
+                        no-gutters
+                    >
                         <v-col cols="12" sm="6">
                             <v-card class="pa-2" outlined tile>
                                 {{ option.key }}
@@ -42,6 +43,10 @@ export default {
         product: {
             type: Object,
             required: true,
+        },
+        user: {
+            type: Object,
+            required: true,
         }
     },
     data: () => ({
@@ -54,7 +59,7 @@ export default {
                 {key: 'Cost', data: this.product.cost},
                 {key: 'Weight', data: this.product.weight},
                 {key: 'Sizes', data: this.product.sizes},
-                {key: 'User Name', data: this.product.userName},
+                {key: 'User Name', data: this.user.name},
                 {key: 'Product Status', data: `<b>${this.product.statusName}</b>`},
             ];
         }

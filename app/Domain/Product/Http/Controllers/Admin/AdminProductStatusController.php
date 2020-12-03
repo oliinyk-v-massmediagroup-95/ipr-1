@@ -7,6 +7,7 @@ use App\Database\Models\Product;
 use App\Enums\ProductStatus;
 use App\Helpers\AppResponse;
 use Illuminate\Http\JsonResponse;
+use Product\Http\Resources\ProductResource;
 use Product\Services\User\Admin\AdminProductStatusService;
 
 class AdminProductStatusController
@@ -23,7 +24,7 @@ class AdminProductStatusController
         $product = $this->adminStatusService->banProduct($product);
 
         return AppResponse::success([
-            'product' => $product,
+            'product' => ProductResource::make($product),
         ]);
     }
 }

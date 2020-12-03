@@ -3,57 +3,78 @@
 namespace Product\Services\User\Supplier;
 
 use App\Database\Models\Product;
+use App\Database\Models\User;
 use App\Database\Queries\ProductQueries;
 use App\Enums\ProductStatus;
+use App\Helpers\AppData;
 use App\Helpers\Proxy\AuthProxy;
+use Illuminate\Http\UploadedFile;
 use LogicException;
+use Product\Services\ProductFileService;
 use Product\Services\Status\ProductStatusService;
 
 class ProductOperationService
 {
     private ProductQueries $productQueries;
     private ProductStatusService $statusService;
-    private AuthProxy $auth;
+    private ProductFileService $fileService;
 
     public function __construct(
         ProductQueries $productQueries,
         ProductStatusService $productStatusService,
-        AuthProxy $auth
+        ProductFileService $productFileService
     )
     {
-        $this->auth = $auth;
+        $this->fileService = $productFileService;
         $this->productQueries = $productQueries;
         $this->statusService = $productStatusService;
     }
 
-    public function showCreate(): void
+    public function createProduct(array $productData, User $user, ?UploadedFile $file): Product
     {
-        // TODO: Implement showCreate() method.
-    }
+        $productData['user_id'] = $user->id;
+        $productData['original_product_id'] = null;
 
-    public function createProduct(array $productData): Product
-    {
-        // TODO: Implement createProduct() method.
+        $product = $this->productQueries->create($productData);
+
+        $path = isset($file)
+            ? $this->fileService->saveFile($file, $product) :
+            AppData::NOT_FOUND_IMAGE;
+
+        $this->productQueries->update($product, ['img' => $path]);
+
+        $this->statusService->changeStatus($product, ProductStatus::CREATED);
+
+        return $product;
     }
 
     public function deleteProduct(Product $product): void
     {
-       $product = $this->productQueries->load($product, ['status']);
+        $product = $this->productQueries->load($product, ['status']);
 
-       if($product->status->name === ProductStatus::BANNED) {
-           throw new LogicException("You can't delete banned product");
-       }
+        if ($product->status->name === ProductStatus::BANNED) {
+            throw new LogicException("You can't delete banned product");
+        }
 
-       $this->statusService->changeStatus($product, ProductStatus::DELETED);
+        $this->statusService->changeStatus($product, ProductStatus::DELETED);
     }
 
-    public function showEdit(Product $product): Product
+    public function getProduct(Product $product): Product
     {
-        // TODO: Implement showEdit() method.
+        return $product;
     }
 
-    public function updateProduct(Product $product, array $productData): Product
+    public function updateProduct(Product $product, array $productData, ?UploadedFile $file): Product
     {
-        // TODO: Implement updateProduct() method.
+        $this->statusService->changeStatus($product, ProductStatus::DELETED);
+
+        $product = $this->productQueries->update($product, $productData);
+
+        if (isset($file)) {
+            $path = $this->fileService->saveFile($file, $product);
+            $this->productQueries->update($product, ['img' => $path]);
+        }
+
+        return $product;
     }
 }
